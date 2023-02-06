@@ -1,4 +1,4 @@
-﻿![](share/pixmaps/tecsatether_splash.png)
+![](share/pixmaps/tecsatether_splash.png)
 
 
 
