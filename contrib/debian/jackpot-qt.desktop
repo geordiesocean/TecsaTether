@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=TecsaTether 
+Comment=TecsaTether P2P Cryptocurrency
+Comment[fr]=TecsaTether, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=TecsaTether, eşten eşe kriptografik sanal para birimi
+Exec=tecsatether-qt %u
+Terminal=false
+Type=Application
+Icon=tecsatether128
+MimeType=x-scheme-handler/tecsatether;
+Categories=Office;Finance;
+StartupWMClass=tecsatether-qt

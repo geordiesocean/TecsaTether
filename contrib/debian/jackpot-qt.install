@@ -1,0 +1,6 @@
+usr/local/bin/tecsatether-qt usr/bin
+share/pixmaps/tecsatether32.xpm usr/share/pixmaps
+share/pixmaps/tecsatether16.xpm usr/share/pixmaps
+share/pixmaps/tecsatether128.png usr/share/pixmaps
+debian/tecsatether-qt.desktop usr/share/applications
+debian/tecsatether-qt.protocol usr/share/kde4/services/

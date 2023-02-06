@@ -1,0 +1,18 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="de">locale/tecsatether_de.qm</file>
+        <file alias="en">locale/tecsatether_en.qm</file>
+        <file alias="en_US">locale/tecsatether_en_US.qm</file>
+        <file alias="es">locale/tecsatether_es.qm</file>
+        <file alias="es_ES">locale/tecsatether_es_ES.qm</file>
+        <file alias="fr_FR">locale/tecsatether_fr_FR.qm</file>
+        <file alias="hr_HR">locale/tecsatether_hr_HR.qm</file>
+        <file alias="it">locale/tecsatether_it.qm</file>
+        <file alias="ko_KR">locale/tecsatether_ko_KR.qm</file>
+        <file alias="nl">locale/tecsatether_nl.qm</file>
+        <file alias="pl">locale/tecsatether_pl.qm</file>
+        <file alias="ru">locale/tecsatether_ru.qm</file>
+        <file alias="tr">locale/tecsatether_tr.qm</file>
+        <file alias="zh_CN">locale/tecsatether_zh_CN.qm</file>
+    </qresource>
+</RCC>

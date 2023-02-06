@@ -1,0 +1,3 @@
+usr/local/bin/tecsatetherd usr/bin
+usr/local/bin/tecsatether-cli usr/bin
+debian/examples/tecsatether.conf etc/tecsatether
