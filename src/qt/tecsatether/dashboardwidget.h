@@ -114,7 +114,7 @@ private Q_SLOTS:
     void changeChartColors();
     void onChartYearChanged(const QString&);
     void onChartMonthChanged(const QString&);
-    void onChartArrowClicked(bool goLeft);
+//    void onChartArrowClicked(bool goLeft);
 #endif
 
 private:

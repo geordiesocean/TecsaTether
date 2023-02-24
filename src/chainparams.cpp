@@ -70,15 +70,14 @@ static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
     (0, uint256S("0x00000cbd8da6f92e485750b7d7058cd6c030bd336e95962e6c7dc3a8f04187dc"))
-    (1, uint256S("0x000002bd8b4e7c84f38348a48e9f7ae2f24470ce8426121246e71fbfeecc31db"))
-    (16, uint256S("0x000001406aeefd5dafac1bc91dedb9356bd778b6a4dbfc75f6df3199c9ea5eb1"))
-    (101, uint256S("0x000007a31ce63e6577532be5ad931142d49c89cdbb33194435353f396c9c0c3b"))
-    (168, uint256S("0x00000ca59bf978e0e55f5990f3c69405dbc32780d3260d4bfcc9baa72ae2d7e3"));
+    (1, uint256S("0x0000d66bcb2a100b4ac086e98420fd7646025a441e2978cb24db72e51f2dd0d0"))
+    (16, uint256S("0x00004db6eef225e9a0514d59c21e9a0a766e37b63946604719e9af3b3121e613"))
+    (101, uint256S("0x0000016ae6a34a94776543f8b538a5992d03f7525e6ad8bf324aee326dce665d"));
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1675516678, // * UNIX timestamp of last checkpoint block
-    170,          // * total number of transactions between genesis and last checkpoint
+    1677254222, // * UNIX timestamp of last checkpoint block
+    102,          // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the UpdateTip debug.log lines)
     1.000000 // * estimated number of transactions per day after checkpoint
 };
@@ -117,7 +116,7 @@ public:
         assert(genesis.hashMerkleRoot == uint256S("0x279e337f76abc8a373b64ab689b0b5d2e209ce60636b8edbd22e6a57fa77438f"));
 
         consensus.fPowAllowMinDifficultyBlocks = false;
-        consensus.powLimit   = ~UINT256_ZERO >> 20;   
+        consensus.powLimit   = ~UINT256_ZERO >> 16;   
         consensus.posLimitV1 = ~UINT256_ZERO >> 24;
         consensus.posLimitV2 = ~UINT256_ZERO >> 20;
         consensus.nBudgetCycleBlocks = 30 * 24 * 60;
@@ -132,9 +131,9 @@ public:
         consensus.nStakeMinAge = 60 * 60;
         consensus.nStakeMinDepth = 100;
         consensus.nStakeMinDepthV2 = 600;
-        consensus.nTargetTimespan = 40 * 60;
-        consensus.nTargetTimespanV2 = 30 * 60;
-        consensus.nTargetSpacing = 1 * 60;
+        consensus.nTargetTimespan = 0.15 * 60;
+        consensus.nTargetTimespanV2 = 0.15 * 60;
+        consensus.nTargetSpacing = 0.15 * 60;
         consensus.nTimeSlotLength = 15;
 
         // spork keys
@@ -175,19 +174,19 @@ public:
         // Network upgrades
         consensus.vUpgrades[Consensus::BASE_NETWORK].nActivationHeight                   = Consensus::NetworkUpgrade::ALWAYS_ACTIVE;
         consensus.vUpgrades[Consensus::UPGRADE_TESTDUMMY].nActivationHeight              = Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;
-        consensus.vUpgrades[Consensus::UPGRADE_POS].nActivationHeight                    = 201;
-        consensus.vUpgrades[Consensus::UPGRADE_POS_V2].nActivationHeight                 = 841;
+        consensus.vUpgrades[Consensus::UPGRADE_POS].nActivationHeight                    = Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;
+        consensus.vUpgrades[Consensus::UPGRADE_POS_V2].nActivationHeight                 = Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;
         consensus.vUpgrades[Consensus::UPGRADE_ZC].nActivationHeight                     = Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;
         consensus.vUpgrades[Consensus::UPGRADE_ZC_V2].nActivationHeight                  = Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;
-        consensus.vUpgrades[Consensus::UPGRADE_BIP65].nActivationHeight                  = 841;
+        consensus.vUpgrades[Consensus::UPGRADE_BIP65].nActivationHeight                  = Consensus::NetworkUpgrade::ALWAYS_ACTIVE;
         consensus.vUpgrades[Consensus::UPGRADE_ZC_PUBLIC].nActivationHeight              = Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;
-        consensus.vUpgrades[Consensus::UPGRADE_STAKE_MODIFIER_V2].nActivationHeight      = 941;
-        consensus.vUpgrades[Consensus::UPGRADE_TIME_PROTOCOL_V2].nActivationHeight       = 1041;
-        consensus.vUpgrades[Consensus::UPGRADE_P2PKH_BLOCK_SIGNATURES].nActivationHeight = 1141;
-        consensus.vUpgrades[Consensus::UPGRADE_STAKE_MIN_DEPTH_V2].nActivationHeight     = 4201;
-        consensus.vUpgrades[Consensus::UPGRADE_MASTERNODE_RANK_V2].nActivationHeight     = 116000;
+        consensus.vUpgrades[Consensus::UPGRADE_STAKE_MODIFIER_V2].nActivationHeight      = Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;
+        consensus.vUpgrades[Consensus::UPGRADE_TIME_PROTOCOL_V2].nActivationHeight       = Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;
+        consensus.vUpgrades[Consensus::UPGRADE_P2PKH_BLOCK_SIGNATURES].nActivationHeight = Consensus::NetworkUpgrade::ALWAYS_ACTIVE;
+        consensus.vUpgrades[Consensus::UPGRADE_STAKE_MIN_DEPTH_V2].nActivationHeight     = Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;
+        consensus.vUpgrades[Consensus::UPGRADE_MASTERNODE_RANK_V2].nActivationHeight     = Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;
 
-        consensus.vUpgrades[Consensus::UPGRADE_POS].hashActivationBlock                    = uint256S("0x2c67ca853f66df5a1679819e22954f675cc7378683a584c70443c7ba3bd55bbd");
+        consensus.vUpgrades[Consensus::UPGRADE_POS].hashActivationBlock                    = uint256S("0x0");
         consensus.vUpgrades[Consensus::UPGRADE_POS_V2].hashActivationBlock                 = uint256S("0x0");
         consensus.vUpgrades[Consensus::UPGRADE_BIP65].hashActivationBlock                  = uint256S("0x0");
         consensus.vUpgrades[Consensus::UPGRADE_STAKE_MODIFIER_V2].hashActivationBlock      = uint256S("0x0");
@@ -201,10 +200,10 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
          */
-        pchMessageStart[0] = 0xc8;
-        pchMessageStart[1] = 0xc8;
-        pchMessageStart[2] = 0xc8;
-        pchMessageStart[3] = 0xc8;
+        pchMessageStart[0] = 0xb3;
+        pchMessageStart[1] = 0xb3;
+        pchMessageStart[2] = 0xb3;
+        pchMessageStart[3] = 0xb3;
         nDefaultPort = 10024;
 
         vSeeds.push_back(CDNSSeedData("seed01", "seed01.tecsatether.com"));

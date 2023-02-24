@@ -362,6 +362,7 @@ static const CRPCCommand vRPCCommands[] =
         { "hidden",             "waitforblockheight",     &waitforblockheight,     true },
 
         /* USDTX features */
+/**
         {"tecsatether", "listmasternodes", &listmasternodes, true },
         {"tecsatether", "getmasternodecount", &getmasternodecount, true },
         {"tecsatether", "createmasternodebroadcast", &createmasternodebroadcast, true },
@@ -387,6 +388,7 @@ static const CRPCCommand vRPCCommands[] =
         {"tecsatether", "checkbudgets", &checkbudgets, true },
         {"tecsatether", "mnsync", &mnsync, true },
         {"tecsatether", "spork", &spork, true },
+*/
 
 #ifdef ENABLE_WALLET
         /* Wallet */

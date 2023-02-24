@@ -48,17 +48,17 @@ DashboardWidget::DashboardWidget(TECSATETHERGUI* parent) :
 
     // Title
     setCssTitleScreen(ui->labelTitle);
-    setCssTitleScreen(ui->labelTitle2);
+//    setCssTitleScreen(ui->labelTitle2);
 
     /* Subtitle */
     setCssSubtitleScreen(ui->labelSubtitle);
 
     // Staking Information
 //    ui->labelMessage->setText(tr("Amount of USDTX earned via Staking & Masternodes"));
-    ui->labelMessage->setText(tr("Amount of USDTX earned via Staking"));
-    setCssSubtitleScreen(ui->labelMessage);
-    setCssProperty(ui->labelSquarePiv, "square-chart-piv");
-    setCssProperty(ui->labelPiv, "text-chart-piv");
+//    ui->labelMessage->setText(tr("Amount of USDTX earned via Staking"));
+//    setCssSubtitleScreen(ui->labelMessage);
+//    setCssProperty(ui->labelSquarePiv, "square-chart-piv");
+//    setCssProperty(ui->labelPiv, "text-chart-piv");
 //	setCssProperty(ui->labelSquareMNRewards, "square-chart-mnrewards");
 //	setCssProperty(ui->labelMNRewards, "text-chart-mnrewards");
 
@@ -68,30 +68,30 @@ DashboardWidget::DashboardWidget(TECSATETHERGUI* parent) :
     QFont fontBold;
     fontBold.setWeight(QFont::Bold);
 
-    setCssProperty(ui->labelChart, "legend-chart");
-    setCssProperty(ui->labelAmountPiv, "text-stake-piv-disable");
+//    setCssProperty(ui->labelChart, "legend-chart");
+//    setCssProperty(ui->labelAmountPiv, "text-stake-piv-disable");
 //	ui->labelAmountMNRewards->setText("0 USDTX");
 //	setCssProperty(ui->labelAmountMNRewards, "text-stake-mnrewards-disable");
 
 
 
-    setCssProperty({ui->pushButtonAll,  ui->pushButtonMonth, ui->pushButtonYear}, "btn-check-time");
-    setCssProperty({ui->comboBoxMonths,  ui->comboBoxYears}, "btn-combo-chart-selected");
+//    setCssProperty({ui->pushButtonAll,  ui->pushButtonMonth, ui->pushButtonYear}, "btn-check-time");
+//    setCssProperty({ui->comboBoxMonths,  ui->comboBoxYears}, "btn-combo-chart-selected");
 
-    ui->comboBoxMonths->setView(new QListView());
-    ui->comboBoxMonths->setStyleSheet("selection-background-color:transparent; selection-color:transparent;");
-    ui->comboBoxYears->setView(new QListView());
-    ui->comboBoxYears->setStyleSheet("selection-background-color:transparent; selection-color:transparent;");
-    ui->pushButtonYear->setChecked(true);
+//    ui->comboBoxMonths->setView(new QListView());
+//    ui->comboBoxMonths->setStyleSheet("selection-background-color:transparent; selection-color:transparent;");
+//    ui->comboBoxYears->setView(new QListView());
+//    ui->comboBoxYears->setStyleSheet("selection-background-color:transparent; selection-color:transparent;");
+//    ui->pushButtonYear->setChecked(true);
 
-    setCssProperty(ui->pushButtonChartArrow, "btn-chart-arrow");
-    setCssProperty(ui->pushButtonChartRight, "btn-chart-arrow-right");
+//    setCssProperty(ui->pushButtonChartArrow, "btn-chart-arrow");
+//    setCssProperty(ui->pushButtonChartRight, "btn-chart-arrow-right");
 
 #ifdef USE_QTCHARTS
-    setCssProperty(ui->right, "container-right");
-    ui->right->setContentsMargins(20,20,20,0);
-    connect(ui->comboBoxYears, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentIndexChanged),
-        this, &DashboardWidget::onChartYearChanged);
+//    setCssProperty(ui->right, "container-right");
+//    ui->right->setContentsMargins(20,20,20,0);
+//    connect(ui->comboBoxYears, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentIndexChanged),
+//        this, &DashboardWidget::onChartYearChanged);
 #else
     // hide charts container if not USE_QTCHARTS
     ui->right->setVisible(false);
@@ -126,18 +126,18 @@ DashboardWidget::DashboardWidget(TECSATETHERGUI* parent) :
     ui->emptyContainer->setVisible(false);
     setCssProperty(ui->pushImgEmpty, "img-empty-transactions");
     setCssProperty(ui->labelEmpty, "text-empty");
-    setCssProperty(ui->chartContainer, "container-chart");
-    setCssProperty(ui->pushImgEmptyChart, "img-empty-staking-on");
+//    setCssProperty(ui->chartContainer, "container-chart");
+//    setCssProperty(ui->pushImgEmptyChart, "img-empty-staking-on");
 
 //    setCssBtnSecondary(ui->btnHowTo);
 
-    setCssProperty(ui->labelEmptyChart, "text-empty");
-    setCssSubtitleScreen(ui->labelMessageEmpty);
+//    setCssProperty(ui->labelEmptyChart, "text-empty");
+//    setCssSubtitleScreen(ui->labelMessageEmpty);
 
     // Chart State
-    ui->layoutChart->setVisible(false);
-    ui->emptyContainerChart->setVisible(true);
-    setShadow(ui->layoutShadow);
+//    ui->layoutChart->setVisible(false);
+//    ui->emptyContainerChart->setVisible(true);
+//    setShadow(ui->layoutShadow);
 
     connect(ui->listTransactions, &QListView::clicked, this, &DashboardWidget::handleTransactionClicked);
 
@@ -146,17 +146,17 @@ bool hasCharts = false;
     hasCharts = true;
     isLoading = false;
     setChartShow(YEAR);
-    connect(ui->pushButtonYear, &QPushButton::clicked, [this](){setChartShow(YEAR);});
-    connect(ui->pushButtonMonth, &QPushButton::clicked, [this](){setChartShow(MONTH);});
-    connect(ui->pushButtonAll, &QPushButton::clicked, [this](){setChartShow(ALL);});
+//    connect(ui->pushButtonYear, &QPushButton::clicked, [this](){setChartShow(YEAR);});
+//    connect(ui->pushButtonMonth, &QPushButton::clicked, [this](){setChartShow(MONTH);});
+//    connect(ui->pushButtonAll, &QPushButton::clicked, [this](){setChartShow(ALL);});
     if (window)
         connect(window, &TECSATETHERGUI::windowResizeEvent, this, &DashboardWidget::windowResizeEvent);
 #endif
 
     if (hasCharts) {
-        ui->labelEmptyChart->setText(tr("You have no staking rewards"));
+//        ui->labelEmptyChart->setText(tr("You have no staking rewards"));
     } else {
-        ui->labelEmptyChart->setText(tr("No charts library"));
+//        ui->labelEmptyChart->setText(tr("No charts library"));
     }
 }
 
@@ -385,11 +385,11 @@ void DashboardWidget::setChartShow(ChartShowType type)
 {
     this->chartShow = type;
     if (chartShow == MONTH) {
-        ui->containerChartArrow->setVisible(true);
+//        ui->containerChartArrow->setVisible(true);
     } else {
-        ui->containerChartArrow->setVisible(false);
+//        ui->containerChartArrow->setVisible(false);
     }
-    if (isChartInitialized) refreshChart();
+//    if (isChartInitialized) refreshChart();
 }
 
 const QStringList monthsNames = {QObject::tr("Jan"), QObject::tr("Feb"), QObject::tr("Mar"), QObject::tr("Apr"),
@@ -405,12 +405,12 @@ void DashboardWidget::loadChart()
             QDate currentDate = QDate::currentDate();
             monthFilter = currentDate.month();
             yearFilter = currentDate.year();
-            for (int i = 1; i < 13; ++i) ui->comboBoxMonths->addItem(QString(monthsNames[i-1]), QVariant(i));
-            ui->comboBoxMonths->setCurrentIndex(monthFilter - 1);
-            connect(ui->comboBoxMonths, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentIndexChanged),
-                this, &DashboardWidget::onChartMonthChanged);
-            connect(ui->pushButtonChartArrow, &QPushButton::clicked, [this](){ onChartArrowClicked(true); });
-            connect(ui->pushButtonChartRight, &QPushButton::clicked, [this](){ onChartArrowClicked(false); });
+//            for (int i = 1; i < 13; ++i) ui->comboBoxMonths->addItem(QString(monthsNames[i-1]), QVariant(i));
+//            ui->comboBoxMonths->setCurrentIndex(monthFilter - 1);
+//            connect(ui->comboBoxMonths, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentIndexChanged),
+//                this, &DashboardWidget::onChartMonthChanged);
+//            connect(ui->pushButtonChartArrow, &QPushButton::clicked, [this](){ onChartArrowClicked(true); });
+//            connect(ui->pushButtonChartRight, &QPushButton::clicked, [this](){ onChartArrowClicked(false); });
         }
         refreshChart();
         changeChartColors();
@@ -422,17 +422,17 @@ void DashboardWidget::loadChart()
 void DashboardWidget::showHideEmptyChart(bool showEmpty, bool loading, bool forceView)
 {
     if (stakesFilter->rowCount() > SHOW_EMPTY_CHART_VIEW_THRESHOLD || forceView) {
-        ui->layoutChart->setVisible(!showEmpty);
-        ui->emptyContainerChart->setVisible(showEmpty);
+//        ui->layoutChart->setVisible(!showEmpty);
+//        ui->emptyContainerChart->setVisible(showEmpty);
     }
     // Enable/Disable sort buttons
     bool invLoading = !loading;
-    ui->comboBoxMonths->setEnabled(invLoading);
-    ui->comboBoxYears->setEnabled(invLoading);
-    ui->pushButtonMonth->setEnabled(invLoading);
-    ui->pushButtonAll->setEnabled(invLoading);
-    ui->pushButtonYear->setEnabled(invLoading);
-    ui->labelEmptyChart->setText(loading ? tr("Loading chart..") : tr("You have no staking rewards"));
+//    ui->comboBoxMonths->setEnabled(invLoading);
+//    ui->comboBoxYears->setEnabled(invLoading);
+//    ui->pushButtonMonth->setEnabled(invLoading);
+//    ui->pushButtonAll->setEnabled(invLoading);
+//    ui->pushButtonYear->setEnabled(invLoading);
+//    ui->labelEmptyChart->setText(loading ? tr("Loading chart..") : tr("You have no staking rewards"));
 }
 
 void DashboardWidget::initChart()
@@ -460,9 +460,9 @@ void DashboardWidget::initChart()
     QHBoxLayout *baseScreensContainer = new QHBoxLayout(this);
     baseScreensContainer->setMargin(0);
     baseScreensContainer->addWidget(chartView);
-    ui->chartContainer->setLayout(baseScreensContainer);
-    ui->chartContainer->setContentsMargins(0,0,0,0);
-    setCssProperty(ui->chartContainer, "container-chart");
+//    ui->chartContainer->setLayout(baseScreensContainer);
+//    ui->chartContainer->setContentsMargins(0,0,0,0);
+//    setCssProperty(ui->chartContainer, "container-chart");
 }
 
 void DashboardWidget::changeChartColors()
@@ -518,7 +518,7 @@ void DashboardWidget::updateStakeFilter()
                     QDateTime(monthFirst),
                     QDateTime(QDate(currentDate.year(), monthFilter, monthFirst.daysInMonth())).addDays(1).addMSecs(-1)
             );
-            ui->comboBoxYears->setCurrentText(QString::number(currentDate.year()));
+//            ui->comboBoxYears->setCurrentText(QString::number(currentDate.year()));
         } else {
             stakesFilter->clearDateRange();
         }
@@ -639,10 +639,11 @@ void DashboardWidget::onChartYearChanged(const QString& yearStr)
 void DashboardWidget::onChartMonthChanged(const QString& monthStr)
 {
     if (isChartInitialized) {
-        int newMonth = ui->comboBoxMonths->currentData().toInt();
-        if (newMonth != monthFilter) {
-            monthFilter = newMonth;
-            refreshChart();
+//        int newMonth = ui->comboBoxMonths->currentData().toInt();
+//        if (newMonth != monthFilter)
+ 	{
+//            monthFilter = newMonth;
+//            refreshChart();
 #ifndef Q_OS_MAC
         // quick hack to re paint the chart view.
         chart->removeSeries(series);
@@ -691,15 +692,15 @@ void DashboardWidget::onChartRefreshed()
     // Total
     nDisplayUnit = walletModel->getOptionsModel()->getDisplayUnit();
     if (chartData->totalPiv > 0 || chartData->totalMNRewards > 0) {
-        setCssProperty(ui->labelAmountPiv, "text-stake-piv");
+//        setCssProperty(ui->labelAmountPiv, "text-stake-piv");
 //		setCssProperty(ui->labelAmountMNRewards, "text-stake-mnrewards");
     } else {
-        setCssProperty(ui->labelAmountPiv, "text-stake-piv-disable");
+//        setCssProperty(ui->labelAmountPiv, "text-stake-piv-disable");
 //		setCssProperty(ui->labelAmountMNRewards, "text-stake-mnrewards-disable");
     }
 
 //	forceUpdateStyle({ui->labelAmountPiv, ui->labelAmountMNRewards});
-    ui->labelAmountPiv->setText(GUIUtil::formatBalance(chartData->totalPiv, nDisplayUnit));
+//    ui->labelAmountPiv->setText(GUIUtil::formatBalance(chartData->totalPiv, nDisplayUnit));
 //	ui->labelAmountMNRewards->setText(GUIUtil::formatBalance(chartData->totalMNRewards, nDisplayUnit));
 
     series->append(set0);
@@ -719,17 +720,17 @@ void DashboardWidget::onChartRefreshed()
     // Controllers
     switch (chartShow) {
         case ALL: {
-            ui->container_chart_dropboxes->setVisible(false);
+//            ui->container_chart_dropboxes->setVisible(false);
             break;
         }
         case YEAR: {
-            ui->container_chart_dropboxes->setVisible(true);
-            ui->containerBoxMonths->setVisible(false);
+//            ui->container_chart_dropboxes->setVisible(true);
+//            ui->containerBoxMonths->setVisible(false);
             break;
         }
         case MONTH: {
-            ui->container_chart_dropboxes->setVisible(true);
-            ui->containerBoxMonths->setVisible(true);
+//            ui->container_chart_dropboxes->setVisible(true);
+//            ui->containerBoxMonths->setVisible(true);
             break;
         }
         default: break;
@@ -740,28 +741,28 @@ void DashboardWidget::onChartRefreshed()
     int currentYear = QDateTime::currentDateTime().date().year();
 
     QString selection;
-    if (ui->comboBoxYears->count() > 0) {
-        selection = ui->comboBoxYears->currentText();
-        isChartInitialized = false;
-    }
-    ui->comboBoxYears->clear();
-    if (yearStart == currentYear) {
-        ui->comboBoxYears->addItem(QString::number(currentYear));
-    } else {
-        for (int i = yearStart; i < (currentYear + 1); ++i)ui->comboBoxYears->addItem(QString::number(i));
-    }
+//    if (ui->comboBoxYears->count() > 0) {
+//        selection = ui->comboBoxYears->currentText();
+//        isChartInitialized = false;
+//    }
+//    ui->comboBoxYears->clear();
+//    if (yearStart == currentYear) {
+//        ui->comboBoxYears->addItem(QString::number(currentYear));
+//    } else {
+//        for (int i = yearStart; i < (currentYear + 1); ++i)ui->comboBoxYears->addItem(QString::number(i));
+//    }
 
-    if (!selection.isEmpty()) {
-        ui->comboBoxYears->setCurrentText(selection);
-        isChartInitialized = true;
-    } else {
-        ui->comboBoxYears->setCurrentText(QString::number(currentYear));
-    }
+//    if (!selection.isEmpty()) {
+//        ui->comboBoxYears->setCurrentText(selection);
+//        isChartInitialized = true;
+//    } else {
+//        ui->comboBoxYears->setCurrentText(QString::number(currentYear));
+//    }
 
     // back to normal
-    isChartInitialized = true;
-    showHideEmptyChart(false, false, true);
-    isLoading = false;
+//    isChartInitialized = true;
+//    showHideEmptyChart(false, false, true);
+//    isLoading = false;
 }
 
 std::pair<int, int> DashboardWidget::getChartRange(QMap<int, QMap<QString, qint64>> amountsBy)
@@ -800,6 +801,7 @@ void DashboardWidget::updateAxisX(const QStringList* args)
     axisX->append(months);
 }
 
+/**
 void DashboardWidget::onChartArrowClicked(bool goLeft)
 {
     bool updateMonth = false;
@@ -842,16 +844,17 @@ void DashboardWidget::onChartArrowClicked(bool goLeft)
     bool fEndDayisCurrent = dataenddate  == currentDate.day() && monthFilter == currentDate.month();
 
     if (updateMonth)
-        ui->comboBoxMonths->setCurrentIndex(monthFilter - 1);
+//        ui->comboBoxMonths->setCurrentIndex(monthFilter - 1);
 
     if (updateYear)
-        ui->comboBoxYears->setCurrentText(QString::number(yearFilter));
+//        ui->comboBoxYears->setCurrentText(QString::number(yearFilter));
 
     // enable/disable the pushButtonChartRight.
-    ui->pushButtonChartRight->setEnabled(!fEndDayisCurrent);
+//    ui->pushButtonChartRight->setEnabled(!fEndDayisCurrent);
 
 
 }
+*/
 
 void DashboardWidget::windowResizeEvent(QResizeEvent* event)
 {
@@ -888,8 +891,8 @@ void DashboardWidget::onHideChartsChanged(bool fHide)
 {
     fShowCharts = !fHide;
     // Hide charts if requested
-    ui->right->setVisible(fShowCharts);
-    if (fShowCharts) tryChartRefresh();
+//    ui->right->setVisible(fShowCharts);
+//    if (fShowCharts) tryChartRefresh();
 }
 
 #endif

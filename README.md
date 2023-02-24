@@ -1,4 +1,4 @@
-![](share/pixmaps/tecsatether_splash.png)
+﻿![](share/pixmaps/tecsatether_splash.png)
 
 
 
@@ -14,14 +14,12 @@ Specifications:
 
 • RPC Port:         10025
 
-• Block Time:       60 Seconds
+• Block Time:       9 Seconds
 
 
 ---
 
-• PoW Blocks:       1 - 401
 
-• PoS Blocks:       Starting from 401  
 
 • Premine:          990,000,000 USDTX
 
